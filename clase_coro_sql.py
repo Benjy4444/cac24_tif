@@ -24,23 +24,17 @@ class Coro:
         return self.cursor.lastrowid
     
     # Consultamos un producto a partir de su código
-    def consultar_producto(self, codigo):
+    def consultar_corista(self, codigo):
         self.cursor.execute(f"SELECT * FROM coristas WHERE codigo = {codigo}")
         return self.cursor.fetchone()
 
-    # Consultamos un producto y lo mostramos
-    cod_cor = int(input("Ingrese el código del corista: "))
-    corista = coro.consultar_corista(cod_cor)
-    if corista:
-        print(f"Corista encontrado: {corista['codigo']} - {corista['apellido']}")
-    else:
-        print(f'Corista {cod_cor} no encontrado.')
-
-    def modificar_corista(self, codigo,  nuevo_apellido, nuevo_nombre, nuevo_correo, nueva_cuerda, nueva_experiencia, nueva_lectura_musical, nuevo_estudios_musicales, nuevo_activo):
-        sql = "UPDATE coristas SET apellido= %s, nombre= %s, correo= %s, cuerda= %s, experiencia= %s, lectura_musical= %s, estudios_musicales= %s, activo= %s"
+    # Modificamos un producto a partir de su código
+    def modificar_corista(self, mod_codigo, nuevo_apellido, nuevo_nombre, nuevo_correo, nueva_cuerda, nueva_experiencia, nueva_lectura_musical, nuevo_estudios_musicales, nuevo_activo):
+        sql = f"UPDATE coristas SET apellido= %s, nombre= %s, correo= %s, cuerda= %s, experiencia= %s, lectura_musical= %s, estudios_musicales= %s, activo= %s WHERE codigo = {mod_codigo}"
         valores = (nuevo_apellido, nuevo_nombre, nuevo_correo, nueva_cuerda, nueva_experiencia, nueva_lectura_musical, nuevo_estudios_musicales, nuevo_activo)
         self.cursor.execute(sql, valores)
         self.conn.commit()
+        return self.cursor.rowcount > 0
 
     # Mostramos los datos de un producto a partir de su código
     def mostrar_corista(self, codigo):
@@ -59,6 +53,21 @@ class Coro:
             print("-" * 40)
         else:
             print("Corista no encontrado.")
+            
+    def listar_coristas(self):
+        self.cursor.execute("SELECT * FROM coristas")
+        coristas = self.cursor.fetchall()
+        return coristas
+    
+    # Eliminamos un producto de la tabla a partir de su código
+    def eliminar_corista(self, codigo):
+        self.cursor.execute(f"DELETE FROM coristas WHERE codigo = {codigo}")
+        self.conn.commit()
+        return self.cursor.rowcount > 0
+            
+            
+            
+            
 
 # PROGRAMA PRINCIPAL --- PRUEBA ----
 import mysql.connector
@@ -68,9 +77,28 @@ coro = Coro(host='localhost', user='root', password='',database='miapp')
 #coro.agregar_corista("pepellido", "nombre", "correo", "cuerda", "experiencia", "lectura_musical", "estudios_musicales", "activo")
 #coro.agregar_corista("pepe", "nombre", "correo", "cuerda", "experiencia", "lectura_musical", "estudios_musicales", "activo")
 #coro.agregar_corista("llido", "nombre", "correo", "cuerda", "experiencia", "lectura_musical", "estudios_musicales", "activo")
-coro.agregar_corista("lastname", "name", "mail", "chord", "experiencia", "lectura_musical", "estudios_musicales", "activo")
+#coro.agregar_corista("lastname", "name", "mail", "chord", "experiencia", "lectura_musical", "estudios_musicales", "activo")
 
+ # Consultamos un producto y lo mostramos
+#cod_cor = int(input("Ingrese el código del corista: "))
+#corista = coro.consultar_corista(cod_cor)
+#if corista:
+#   print(f"Corista encontrado: {corista['codigo']} - {corista['apellido']}")
+#else:
+#   print(f'Corista {cod_cor} no encontrado.')
+    
 # Modificamos un corista y lo mostramos
-coro.mostrar_corista(4)
-coro.modificar_corista("lastname", "name", "mail", "chord", "XP", "lectura", "estudios", "activo")
-coro.mostrar_corista(4)
+#coro.mostrar_corista(20)
+#coro.modificar_corista(20, "eeeeeeeeeeeeeee", "mail", "chord", "XP", "lectura", "estudios", "activo","qqqq")
+#coro.mostrar_corista(21)
+
+# Listamos todos los productos
+#coristas = coro.listar_coristas()
+#for corista in coristas:
+#    print(corista)
+    
+# Eliminamos un producto
+#coro.eliminar_corista(19)
+#coristas = coro.listar_coristas()
+#for corista in coristas:
+#    print(corista)
