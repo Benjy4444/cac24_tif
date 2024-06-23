@@ -53,4 +53,5 @@ class Catalogo:
 catalogo = Catalogo(host='localhost', user='root', password='',database='miapp')
 
 # Carpeta para guardar las imagenes
-ruta_destino = './static/imag
+ruta_destino = './static/imagenes/'
+
