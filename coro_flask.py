@@ -130,7 +130,7 @@ def agregar_corista():
     #nombre_imagen = secure_filename(imagen.filename)
     #nombre_base, extension = os.path.splitext(nombre_imagen)
     #nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
-    nuevo_codigo = catalogo.agregar_corista(apellido, nombre, correo, cuerda, experiencia, lectura_musical, estudios_musicales, activo)
+    nuevo_codigo = coro.agregar_corista(apellido, nombre, correo, cuerda, experiencia, lectura_musical, estudios_musicales, activo)
     if nuevo_codigo:
         #imagen.save(os.path.join(RUTA_DESTINO, nombre_imagen))
         return jsonify({"mensaje": "Corista agregado correctamente.","codigo": nuevo_codigo, "apellido": apellido}), 201
