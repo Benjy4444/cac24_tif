@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>Agregar corista 🚀</title>
+    <link rel="stylesheet" href="./static/css/estilos.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar-index ">
+        <img class="logo-nav" src="./static/imagenes/logos-nav.webp"
+        alt="logo agencia de aprendizaje">
+        </nav>
+        </header>
+        <div class="logo-centrado">
+        <img src="./static/imagenes/logo_Codo.jpg" alt="logo">
+        </div>
+        <h1>Agregar Coristas al Coro</h1><br>
+        <!--enctype="multipart/form-data" es necesario para enviar archivos al back.-->
+        <form id="formulario" enctype="multipart/form-data">
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="correo">Correo:</label>
+        <input type="text" id="correo" name="correo" required><br>
+
+        <label for="cuerda">Cuerda:</label>
+        <input type="text" id="cuerda" name="cuerda" required><br>
+
+        <label for="experiencia">Experiencia:</label>
+        <input type="number" id="experiencia" name="experiencia" required><br>
+
+        <label for="lectura_musical">Lectura musical:</label>
+        <input type="number" id="lectura_musical" name="lectura_musical" required><br>
+
+        <label for="estudios_musicales">Estudios musicales:</label>
+        <input type="number" id="estudios_musicales" name="estudios_musicales" required><br>
+
+        <label for="activo">Activo:</label>
+        <input type="number" id="activo" name="activo" required><br>
+        
+        <!-- <label for="imagenProducto">Imagen del producto:</label>
+        <input type="file" id="imagenProducto" name="imagen">
+        <br><br>
+        <label for="proveedorProducto">Proveedor:</label>
+        <input type="text" id="proveedorProducto" name="proveedor"> -->
+
+        <button type="submit">Agregar corista</button>
+        <a href="index.html">Menu principal</a>
+        </form>
+        <script>
+        const URL = "http://127.0.0.1:5000/"
+        //Al subir al servidor, deberá utilizarse la siguiente ruta.
+        //USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
+        //const URL = "https://USUARIO.pythonanywhere.com/"
+        // Capturamos el evento de envío del formulario
+        document.getElementById('formulario').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evitamos que se envie el form
+        var formData = new FormData(this);
+        // Realizamos la solicitud POST al servidor
+        fetch(URL + 'productos', {
+        method: 'POST',
+        body: formData // Aquí enviamos formData. Dado que formData puede contener archivos, no se utiliza JSON.
+        })
+        //Después de realizar la solicitud POST, se utiliza el método then() para manejar la respuesta del servidor.
+        .then(function (response) {
+        if (response.ok) {
+            //Si la respuesta es exitosa, convierte los datos de la respuesta a formato JSON.
+            return response.json();
+        } else {
+            // Si hubo un error, lanzar explícitamente una excepción para ser "catcheada" más adelante
+            throw new Error('Error al agregar el producto.');
+        }
+    })
+    //Respuesta OK, muestra una alerta informando que el producto se agregó correctamente y limpia los campos del formulario para
+    //que puedan ser utilizados para un nuevo producto. 
+    .then(function (data) {
+        alert('Producto agregado correctamente.');
+    })
+    // En caso de error, mostramos una alerta con un mensaje de error.
+    .catch(function (error) {
+    alert('Error al agregar el producto.');
+    })
+    // Limpiar el formulario en ambos casos (éxito o error)
+    .finally(function () {
+    document.getElementById('apellido').value = "";
+    document.getElementById('nombre').value = "";
+    document.getElementById('correo').value = "";
+    document.getElementById('cuerda').value = "";
+    document.getElementById('experiencia').value = "";
+    document.getElementById('lectura_musical').value = "";
+    document.getElementById('estudios_musicales').value = "";
+    document.getElementById('activo').value = "";
+    });
+    })
+    </script>
+    </body>
+</html>
