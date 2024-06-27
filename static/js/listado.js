@@ -6,6 +6,7 @@ const URL = "http://127.0.0.1:5000/";
 
 // Realizamos la solicitud GET al servidor para obtener todos los coristas.
 fetch(URL + 'coristas')
+
 .then(function (response) {
     if (response.ok) {
         // Si la respuesta es exitosa (response.ok), convertimos el cuerpo de la respuesta de formato JSON a un objeto JavaScript y pasamos estos datos a la siguiente promesa then.
@@ -15,6 +16,7 @@ fetch(URL + 'coristas')
         throw new Error('Error al obtener los coristas.');
     }
 })
+
 .then(function (data) {
     // Obtenemos la referencia al elemento del DOM donde se mostrarán los coristas
     let tablaCoristas = document.getElementById('tablaCoristas');
