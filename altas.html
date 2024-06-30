@@ -21,29 +21,79 @@
         <form id="formulario" enctype="multipart/form-data">
         
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required><br>
-
+        <input type="text" id="apellido" name="apellido" required><br> 
+        
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br>
+        <input type="text" id="nombre" name="nombre" required><br> 
 
         <label for="correo">Correo:</label>
-        <input type="text" id="correo" name="correo" required><br>
-
-        <label for="cuerda">Cuerda:</label>
-        <input type="text" id="cuerda" name="cuerda" required><br>
-
-        <label for="experiencia">Experiencia:</label>
-        <input type="number" id="experiencia" name="experiencia" required><br>
-
-        <label for="lectura_musical">Lectura musical:</label>
-        <input type="number" id="lectura_musical" name="lectura_musical" required><br>
-
-        <label for="estudios_musicales">Estudios musicales:</label>
-        <input type="number" id="estudios_musicales" name="estudios_musicales" required><br>
-
-        <label for="activo">Activo:</label>
-        <input type="number" id="activo" name="activo" required><br>
+        <input type="email" id="correo" name="correo" required><br> 
         
+        <!-- <label for="cuerda">Cuerda:</label>
+        <input type="text" id="cuerda" name="cuerda" required><br> -->
+
+        <label class="visually-hidden" for="cuerda" class="form-label">Cuerda</label>
+        <select id="cuerda"  name="cuerda" class="form-select" required>
+          <option selected disabled value="">Seleccionar</option>
+          <option value="Soprano">Soprano</option>
+          <option value="Alto">Alto</option>
+          <option value="Tenor">Tenor</option>
+          <option value="Bajo">Bajo</option>
+          <option value="No lo sé">No lo sé</option>
+        </select>
+        
+        <!-- <label for="experiencia">Experiencia:</label>
+        <input type="number" id="experiencia" name="experiencia" required><br> -->
+
+        <label class="form-check-label mr-2">Experiencia:</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="experiencia" id="experiencia" value="SI" required>
+          <label class="form-check-label" for="experiencia">SI</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="experiencia" id="experiencia" value="NO" required>
+          <label class="form-check-label" for="experiencia">NO</label>
+        </div>         
+        
+        <!-- <label for="lectura_musical">Lectura musical:</label>
+        <input type="number" id="lectura_musical" name="lectura_musical" required><br> -->
+    
+        <label class="form-check-label mr-2">Lectura musical:</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="lectura_musical" id="lectura_musical" value="SI" required>
+            <label class="form-check-label" for="lectura_musical">SI</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="lectura_musical" id="lectura_musical" value="NO" required>
+            <label class="form-check-label" for="lectura_musical">NO</label>
+        </div>            
+    
+        <!-- <label for="estudios_musicales">Estudios musicales:</label>
+        <input type="number" id="estudios_musicales" name="estudios_musicales" required><br> -->
+
+        <label class="form-check-label mr-2">Estudios musicales:</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="estudios_musicales" id="estudios_musicales" value="SI" required>
+            <label class="form-check-label" for="estudios_musicales">SI</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="estudios_musicales" id="estudios_musicales" value="NO" required>
+            <label class="form-check-label" for="estudios_musicales">NO</label>
+        </div>      
+
+        <!-- <label for="activo">Activo:</label>
+        <input type="number" id="activo" name="activo" required><br> -->
+
+        <label class="form-check-label mr-2">Activo:</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="activo" id="activo" value="SI" required>
+          <label class="form-check-label" for="activo">SI</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="activo" id="activo" value="NO" required>
+          <label class="form-check-label" for="activo">NO</label>
+        </div>    
+
         <!-- <label for="imagenProducto">Imagen del producto:</label>
         <input type="file" id="imagenProducto" name="imagen">
         <br><br>

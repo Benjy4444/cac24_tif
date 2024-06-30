@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS coristas (
     nombre VARCHAR(255) NOT NULL,
     correo VARCHAR(255) NOT NULL,
     cuerda VARCHAR(255) NOT NULL,
-    experiencia BOOLEAN,
-    lectura_musical BOOLEAN,
-    estudios_musicales BOOLEAN,
-    activo BOOLEAN);
+    experiencia VARCHAR(255) NOT NULL,
+    lectura_musical VARCHAR(255) NOT NULL,
+    estudios_musicales VARCHAR(255) NOT NULL,
+    activo VARCHAR(255) NOT NULL);
