@@ -44,7 +44,7 @@ class Coro:
                 raise err
             
         # Una vez que la base de datos está establecida, creamos la tabla si no existe 
-        self.cursor.execute(f"CREATE TABLE IF NOT EXISTS coristas (codigo INT AUTO_INCREMENT PRIMARY KEY, apellido VARCHAR(255) NOT NULL, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, cuerda VARCHAR(255) NOT NULL, experiencia VARCHAR(255) NOT NULL, lectura_musical VARCHAR(255) NOT NULL, estudios_musicales VARCHAR(255) NOT NULL, activo VARCHAR(255) NOT NULL")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS coristas (codigo INT AUTO_INCREMENT PRIMARY KEY, apellido VARCHAR(255) NOT NULL, nombre VARCHAR(255) NOT NULL, correo VARCHAR(255) NOT NULL, cuerda VARCHAR(255) NOT NULL, experiencia TEXT NOT NULL, lectura_musical TEXT NOT NULL, estudios_musicales TEXT NOT NULL, activo TEXT NOT NULL")
         self.conn.commit()
 
     def close_db(self):
