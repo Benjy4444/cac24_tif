@@ -18,10 +18,10 @@ CORS(app)  # Esto habilitará CORS para todas las rutas
 
 class Coro:
     def __init__(self, host, user, password, database):
-        self.host = 'Benjy444.mysql.pythonanywhere-services.com'
-        self.user = 'Benjy444'
-        self.password = 'Ra28858166'
-        self.database = 'Benjy444$miapp'
+        self.host = host
+        self.user = user
+        self.password = password
+        self.database = database
         self.conn = None
         self.cursor = None
         self.connect_to_db()
