@@ -10,6 +10,7 @@ from werkzeug.utils import secure_filename
 # No es necesario instalar, es parte del sistema standard de Python
 import os
 import time
+import MySQLdb
 #--------------------------------------------------------------------
 
 app = Flask(__name__)
