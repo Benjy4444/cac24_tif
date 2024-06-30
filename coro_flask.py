@@ -62,11 +62,7 @@ class Coro:
         return self.cursor.fetchone()
 
     def agregar_corista(self, apellido, nombre, correo, cuerda, experiencia, lectura_musical, estudios_musicales, activo):
-        sql = """
-            INSERT INTO coristas 
-            (apellido, nombre, correo, cuerda, experiencia, lectura_musical, estudios_musicales, activo)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-        """
+        sql = "INSERT INTO coristas (apellido, nombre, correo, cuerda, experiencia, lectura_musical, estudios_musicales, activo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);"
         valores = (apellido, nombre, correo, cuerda, experiencia, lectura_musical, estudios_musicales, activo)
         self.cursor.execute(sql, valores)
         self.conn.commit()
