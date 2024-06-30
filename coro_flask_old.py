@@ -1,3 +1,9 @@
+# Password DB pythonanywhere: Ra28858166
+
+# Database host address:Benjy444.mysql.pythonanywhere-services.com
+
+# Username:Benjy444
+
 #--------------------------------------------------------------------
 # Instalar con pip install Flask
 from flask import Flask, request, jsonify

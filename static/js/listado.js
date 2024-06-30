@@ -1,5 +1,5 @@
 // Definimos la URL del servidor donde se encuentran los datos de los coristas
-const URL = "http://127.0.0.1:5000/";
+const URL = "http://www.benjy444.pythonanywhere.com/";
 // Al subir al servidor, deberá utilizarse la siguiente ruta.
 // USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
 // const URL = "https://USUARIO.pythonanywhere.com/";

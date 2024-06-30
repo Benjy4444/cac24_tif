@@ -1,4 +1,4 @@
-const URL = "http://127.0.0.1:5000/"
+const URL = "http://www.benjy444.pythonanywhere.com/"
 document.getElementById('formulario').addEventListener('submit', function (event) {
 event.preventDefault(); // Evitamos que se envie el form 
 var formData = new FormData(this);
