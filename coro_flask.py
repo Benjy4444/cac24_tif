@@ -91,7 +91,8 @@ class Coro:
 #--------------------------------------------------------------------
 
 # Crear una instancia de la clase Coro
-coro = Coro(host='localhost', user='root', password='', database='miapp')
+#coro = Coro(host='localhost', user='root', password='', database='miapp')
+coro = Coro(host = 'Benjy444.mysql.pythonanywhere-services.com', user = 'Benjy444', password = 'Ra28858166', database = 'Benjy444$miapp')
 
 @app.route("/coristas", methods=["GET"])
 def listar_coristas():
