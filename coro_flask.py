@@ -14,7 +14,7 @@ import MySQLdb
 #--------------------------------------------------------------------
 
 app = Flask(__name__)
-CORS(app)  # Esto habilitará CORS para todas las rutas
+CORS(app, resources={r"/coristas/*": {"origins": "*"}})  # Esto habilitará CORS para todas las rutas
 
 class Coro:
     def __init__(self, host, user, password, database):
