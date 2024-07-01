@@ -8,6 +8,7 @@ import mysql.connector
 # Si es necesario, pip install Werkzeug
 from werkzeug.utils import secure_filename
 # No es necesario instalar, es parte del sistema standard de Python
+from mysql.connector import Error
 import os
 import time
 import MySQLdb
